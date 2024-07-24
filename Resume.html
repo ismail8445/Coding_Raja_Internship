@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Resume Builder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Sytles.css">
+    <script src="Myscript.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center mt-5">
+            <h1>Advanced Resume Builder</h1>
+            <div class="text-right">
+                <button class="btn btn-secondary" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            </div>
+        </header>
+        <form id="resumeForm" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="templateSelect">Choose a Template:</label>
+                <select class="form-control" id="templateSelect" required>
+                    <option value="" disabled selected>Select a template</option>
+                    <option value="template1">Template 1</option>
+                    <option value="template2">Template 2</option>
+                </select>
+                <div class="invalid-feedback">Please choose a template.</div>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" class="form-control" id="phone" placeholder="Your Phone Number" required>
+                <div class="invalid-feedback">Please enter your phone number.</div>
+            </div>
+            <div class="form-group" id="educationSection">
+                <label for="education">Education:</label>
+                <button type="button" class="btn btn-primary btn-sm" onclick="addEducation()">Add Education</button>
+                <div class="education-entry mt-2">
+                    <textarea class="form-control trix-editor" id="education" rows="3" placeholder="Your Education" required></textarea>
+                    <div class="invalid-feedback">Please enter your education details.</div>
+                </div>
+            </div>
+            <div class="form-group" id="experienceSection">
+                <label for="experience">Experience:</label>
+                <button type="button" class="btn btn-primary btn-sm" onclick="addExperience()">Add Experience</button>
+                <div class="experience-entry mt-2">
+                    <textarea class="form-control trix-editor" id="experience" rows="3" placeholder="Your Experience" required></textarea>
+                    <div class="invalid-feedback">Please enter your experience details.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <textarea class="form-control trix-editor" id="skills" rows="3" placeholder="Your Skills" required></textarea>
+                <div class="invalid-feedback">Please enter your skills.</div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" onclick="previewResume()">Preview</button>
+                <button type="button" class="btn btn-success" onclick="downloadResume('pdf')">Download as PDF</button>
+                <button type="button" class="btn btn-info" onclick="downloadResume('word')">Download as Word</button>
+            </div>
+        </form>
+
+        <div id="resumePreview" class="mt-5">
+            <h2>Preview</h2>
+            <div id="previewContainer"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/6.1.0/docx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
